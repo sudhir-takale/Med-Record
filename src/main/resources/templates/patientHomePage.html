@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MedRecord - A Personal Health Record System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-image: url('https://previews.123rf.com/images/giggsy25/giggsy251711/giggsy25171100134/89624948-smart-doctor-with-a-stethoscope-on-blurred-hospital-background-and-medical-icon-in-hexagonal-shaped.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            /* Keeps the background fixed while scrolling */
+        }
+
+        .container {
+            text-align: center;
+            padding: 100px;
+            margin-top: 12%;
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 3em;
+            /* Increased font size */
+            margin-bottom: 30px;
+        }
+
+        .btn-get-started {
+            font-size: 1.5em;
+            font-weight: 700;
+            border-radius: 12px;
+            width: 40%;
+            margin-top: 20px;
+            background-color: #d9534f;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .get:hover {
+            box-shadow: 3px 4px 5px;
+            background-color: #b01a12;
+        }
+
+        @media (max-width: 768px) {
+            .btn-get-started {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h1 style="color: rgb(160, 8, 224); font-weight: bold;font-family: cursive;text-shadow: 3px 2px 5px black;">
+            MedRecord - A Personal Health Record System</h1>
+        <a href="/patient/home/" class="btn btn-primary btn-get-started get">Get
+            Started</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

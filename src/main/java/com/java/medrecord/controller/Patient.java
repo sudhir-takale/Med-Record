@@ -11,7 +11,7 @@ public class Patient {
 
     @GetMapping(value = "/")
     public String home() {
-        return "patientHomePage";
+        return "patient/patientHomePage";
     }
 
 }

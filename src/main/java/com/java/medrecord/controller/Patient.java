@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequestMapping(value = "/patient", method = RequestMethod.GET)
 public class Patient {
 
-    @GetMapping("/")
+    @GetMapping("/dashboard")
     public String home() {
-        return "patient/patientHomePage";
+        return "patient/dashboard";
     }
 
     @GetMapping("/signup")

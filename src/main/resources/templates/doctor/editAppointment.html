@@ -1,46 +1,75 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Update Appointment</title>
-    <!-- Add Bootstrap CSS link -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<title>Update Appointment</title>
+	<!-- Add Bootstrap CSS link -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Update Appointment</h1>
-        <form>
-            <div class="form-group">
-                <label for="appointmentId">Appointment ID:</label>
-                <input type="text" class="form-control" id="appointmentId" placeholder="Enter Appointment ID">
-            </div>
-            <div class="form-group">
-                <label for="newDate">New Date:</label>
-                <input type="date" class="form-control" id="newDate">
-            </div>
-            <div class="form-group">
-                <label for="newTime">New Time:</label>
-                <input type="time" class="form-control" id="newTime">
-            </div>
-            <button type="button" class="btn btn-primary" onclick="updateAppointment()">Update</button>
-        </form>
-        <!-- Display success or error messages here -->
-        <div id="message" class="mt-3"></div>
-    </div>
-    <!-- Add Bootstrap JS and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <!-- Your custom JavaScript for handling the update action -->
-    <script>
-        function updateAppointment() {
-            // Retrieve values from the form
-            var appointmentId = $("#appointmentId").val();
-            var newDate = $("#newDate").val();
-            var newTime = $("#newTime").val();
-            // Implement the update logic here (e.g., send an AJAX request to your backend)
-            // Display a success or error message in the #message div
-            // For demonstration purposes, a sample success message is shown below
-            $("#message").html("<div class='alert alert-success'>Appointment updated successfully.</div>");
-        }
-    </script>
+	<div class="container">
+		<h1>Update Appointment</h1>
+		<form method="put">
+			<div class="form-group">
+				<label for="appointmentId">Appointment ID:</label>
+				<input type="number" class="form-control" id="appointmentId" placeholder="Enter Appointment ID">
+			</div>
+
+			<div class="form-group">
+				<label for="newDate">New Date:</label>
+				<input type="date" class="form-control" id="newDate">
+			</div>
+			<div class="form-group">
+				<label for="newTime">New Time:</label>
+				<input type="time" class="form-control" id="newTime">
+			</div>
+			<button type="button" class="btn btn-primary" onclick="updateAppointment()">Update</button>
+		</form>
+		<!-- Display success or error messages here -->
+		<div id="message" class="mt-3"></div>
+	</div>
+	<!-- Add Bootstrap JS and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+	<!-- Your custom JavaScript for handling the update action -->
+	<!-- Include jQuery for AJAX -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+	<script>
+		function updateAppointment() {
+			var appointmentId = $("#appointmentId").val();
+			var newDate = $("#newDate").val();
+			var newTime = $("#newTime").val();
+
+			$.ajax({
+				type: "PUT", // Use "PUT" for the method
+				url: "/doctor/edit-appointment/" + appointmentId, // Replace with your actual endpoint URL
+				data: {
+					newDate: newDate,
+					newTime: newTime
+				},
+				contentType: "application/x-www-form-urlencoded", // Change content type to "application/x-www-form-urlencoded"
+				success: function (response) {
+					// Handle success (e.g., display a success message)
+					$("#message").html("<div class='alert alert-success'>Appointment updated successfully.</div>");
+					window.location.href = "/doctor/appointments";
+				},
+				error: function (xhr, status, error) {
+					var errorMessage = "";
+					if (xhr.status === 0) {
+						errorMessage = "Network error: Unable to connect to the server.";
+					} else {
+						errorMessage = "Error updating appointment: " + xhr.statusText;
+					}
+
+					$("#message").html("<div class='alert alert-danger'>" + errorMessage + "</div>");
+				}
+			});
+		}
+	</script>
+
+
 </body>
+
 </html>

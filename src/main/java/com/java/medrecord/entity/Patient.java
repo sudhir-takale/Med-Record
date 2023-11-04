@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "patients")
-public class User {
+public class Patient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,10 +24,10 @@ public class User {
     private int age;
     private String address;
 
-    public User() {
+    public Patient() {
     }
 
-    public User(String patientname, String username, String phoneno, String email, String password, String gender,
+    public Patient(String patientname, String username, String phoneno, String email, String password, String gender,
             String bloodgroup, int age, String address) {
         this.patientname = patientname;
         this.username = username;

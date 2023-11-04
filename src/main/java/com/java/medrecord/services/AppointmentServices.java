@@ -19,7 +19,7 @@ public class AppointmentServices {
 		return appointmentRepositery.findAll();
 	}
 	
-	
+
 	public Appointment updateAppointment(int id, String newDate, String newTime) {
         Optional<Appointment> optionalAppointment = appointmentRepositery.findById(id);
         if (optionalAppointment.isPresent()) {

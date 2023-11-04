@@ -39,6 +39,12 @@ public class PatientHandler {
         return "patient/register";
 
     }
+    
+    @GetMapping("/history")
+    public String history() {
+        return "patient/history";
+
+    }
 
     @PostMapping("process")
     public String validateUser(@ModelAttribute Patient patient, BindingResult result) {

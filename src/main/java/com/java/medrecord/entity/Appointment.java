@@ -21,7 +21,7 @@ public class Appointment {
     private String note;
 
 
-    
+   
     
     public Appointment() {
 

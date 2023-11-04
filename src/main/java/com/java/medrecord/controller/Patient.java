@@ -19,5 +19,11 @@ public class Patient {
         return "patient/registration";
 
     }
+    
+    @GetMapping("/history")
+    public String history() {
+        return "patient/history";
+
+    }
 
 }

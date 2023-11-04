@@ -21,12 +21,6 @@ public class Appointment {
     private String status;
     private String note;
 
-<<<<<<< HEAD
-
-   
-    
-=======
->>>>>>> cc261beb0a70acc54880b72cd52f0ab6e2f25156
     public Appointment() {
 
         this.username = "sanket";

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Here</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    
+
 </head>
 <style>
     .zero-raduis {
@@ -308,7 +308,7 @@
             </div>
 
             <form action="#" th:action="@{/processlogin}" method="post">
-                <p  th:text="${message}" class="alert alert-danger" th:if="${message}"></p>
+                <p th:text="${message}" class="alert alert-danger" th:if="${message}"></p>
                 <p th:text="${error}" class="alert alert-danger" th:if="${error}"></p>
                 <input type="email" id="email" class="fadeIn second zero-raduis" th:name="email" placeholder="Username">
                 <input type="text" id="password" class="fadeIn third zero-raduis" th:name="password"

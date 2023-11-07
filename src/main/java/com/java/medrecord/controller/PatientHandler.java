@@ -2,11 +2,10 @@ package com.java.medrecord.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.java.medrecord.dao.AppointmentRepositery;
+import com.java.medrecord.dao.PatientRepository;
 import com.java.medrecord.entity.Appointment;
-import com.java.medrecord.entity.User;
+import com.java.medrecord.entity.Patient;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,15 +17,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequestMapping(value = "/patient", method = RequestMethod.GET)
-public class Patient {
+public class PatientHandler {
 
     @Autowired
     private AppointmentRepositery appointmentRepository;
+    @Autowired
+    private PatientRepository patientRepository;
 
     @GetMapping("/dashboard")
     public String home() {
         return "patient/dashboard";
     }
+
     @GetMapping("/")
     public String dashboard() {
         return "patient/dashboard";
@@ -44,16 +46,17 @@ public class Patient {
 
     }
 
-    @PostMapping()
-    public String validateUser(@RequestParam User user, BindingResult result) {
+    @PostMapping("process")
+    public String validateUser(@ModelAttribute Patient patient, BindingResult result) {
 
         if (result.hasErrors()) {
 
             return "patient/register";
+        } else {
+            patientRepository.save(patient);
+            return "redirect:/patient/dashboard";
+
         }
-
-        return "patient/dashboard";
-
     }
 
     @GetMapping("/appointmentrequest")

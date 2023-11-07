@@ -1,8 +1,6 @@
 package com.java.medrecord.controller;
 
 import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,7 +48,7 @@ public class Doctor {
         return "doctor/appointment";
     }
     
-    @PutMapping("/edit-appointment/{id}")
+    @PutMapping("/edit-appointment1/{id}")
     public ResponseEntity<Appointment> updateAppointment(
         @PathVariable int id,
         @RequestParam String newDate,
@@ -66,10 +64,12 @@ public class Doctor {
         }
     }
     
-    @GetMapping("/edit-appointment")
-    public String showUpdateAppointmentPage() {
-        return "doctor/editAppointment"; // Return the name of your HTML template
+    @GetMapping("/edit-appointment/{id}")
+    public String showUpdateAppointmentPage(@PathVariable int id, Model model) {
+        model.addAttribute("appointmentid", id);
+        return "doctor/editAppointment";
     }
+
     
     
 }

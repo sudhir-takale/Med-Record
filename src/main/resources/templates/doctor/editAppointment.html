@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="www.thymeleaf.org">
 
 <head>
 	<title>Update Appointment</title>
@@ -13,7 +13,7 @@
 		<form method="put">
 			<div class="form-group">
 				<label for="appointmentId">Appointment ID:</label>
-				<input type="number" class="form-control" id="appointmentId" placeholder="Enter Appointment ID">
+				<input type="number" class="form-control" id="appointmentId" placeholder="Enter Appointment ID" th:value="${appointmentid}"  readonly="readonly">
 			</div>
 
 			<div class="form-group">
@@ -44,7 +44,7 @@
 
 			$.ajax({
 				type: "PUT", // Use "PUT" for the method
-				url: "/doctor/edit-appointment/" + appointmentId, // Replace with your actual endpoint URL
+				url: "/doctor/edit-appointment1/" + appointmentId, // Replace with your actual endpoint URL
 				data: {
 					newDate: newDate,
 					newTime: newTime

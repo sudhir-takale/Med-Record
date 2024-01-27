@@ -1,13 +1,24 @@
 package com.java.medrecord.controller;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+//import com.java.medrecord.dao.DoctorRepository;
+//import com.java.medrecord.dao.PatientRepository;
+
 @Controller
 public class LoginController {
 
+//	@Autowired
+//	DoctorRepository doctorRepository;
+//	
+//	@Autowired
+//	PatientRepository patientRepository;
+//	
+//	
     @GetMapping("/login")
     public String loggedin() {
         return "login";
@@ -31,6 +42,10 @@ public class LoginController {
     private boolean isValidUser(String email, String password) {
         // Your authentication logic goes here
         // Return true if the user is valid, otherwise return false
-        return true; // For example, you can compare with a stored list of valid users
+    	
+    	
+    	
+    	
+        return true; 
     }
 }

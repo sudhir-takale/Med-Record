@@ -8,11 +8,11 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "doctors")
-public class DoctorEntity {
+public class Doctor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int doctorid;
+	private Long doctorid;
 	private String doctorName;
 	private String phoneNo;
 	private String email;
@@ -23,12 +23,12 @@ public class DoctorEntity {
 	private int age;
 	private String address;
 	
-	public DoctorEntity() {
+	public Doctor() {
 		
 	}
 	
 	
-	public DoctorEntity(int doctorid, String doctorName, String phoneNo, String email, String password,
+	public Doctor(Long doctorid, String doctorName, String phoneNo, String email, String password,
 			String speciality, String gender, String bloodGroup, int age, String address) {
 		super();
 		this.doctorid = doctorid;
@@ -44,12 +44,12 @@ public class DoctorEntity {
 	}
 
 
-	public int getDoctorid() {
+	public Long getDoctorid() {
 		return doctorid;
 	}
 
 
-	public void setDoctorid(int doctorid) {
+	public void setDoctorid(Long doctorid) {
 		this.doctorid = doctorid;
 	}
 

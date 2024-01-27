@@ -2,76 +2,68 @@ package com.java.medrecord.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import com.java.medrecord.dao.AppointmentRepositery;
-import com.java.medrecord.dao.PatientRepository;
-import com.java.medrecord.entity.Appointment;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.java.medrecord.entity.Patient;
+import com.java.medrecord.services.PatientServices;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.http.HttpStatus;
 
-@Controller
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+@RestController
 @RequestMapping(value = "/patient", method = RequestMethod.GET)
 public class PatientHandler {
 
-    @Autowired
-    private AppointmentRepositery appointmentRepository;
-    @Autowired
-    private PatientRepository patientRepository;
+	@Autowired
+	private PatientServices patientServices;
 
-    @GetMapping("/dashboard")
-    public String home() {
-        return "patient/dashboard";
-    }
+	@PostMapping("/create-patient")
+	public ResponseEntity<Patient> createPatient(@RequestBody Patient patient) {
 
-    @GetMapping("/")
-    public String dashboard() {
-        return "patient/dashboard";
-    }
+		if (this.patientServices.createPatient(patient)) {
+			return ResponseEntity.status(HttpStatus.CREATED).build();
+		} else {
 
-    @GetMapping("/register")
-    public String registering() {
-        return "patient/register";
+			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+		}
 
-    }
-    
-    @GetMapping("/history")
-    public String history() {
-        return "patient/history";
+	}
 
-    }
+	@GetMapping("/dashboard")
+	public String home() {
+		return "patient/dashboard";
+	}
 
-    @PostMapping("process")
-    public String validateUser(@ModelAttribute Patient patient, BindingResult result) {
+	@PostMapping("/makeappointment")
+	public void appointmentRequest() {
 
-        if (result.hasErrors()) {
+	}
 
-            return "patient/register";
-        } else {
-            patientRepository.save(patient);
-            return "redirect:/patient/dashboard";
+	@DeleteMapping("/deleteappointment")
+	public void deleteAppointment() {
 
-        }
-    }
+	}
 
-    @GetMapping("/appointmentrequest")
-    public String submitForm(@ModelAttribute Appointment appointment) {
-        return "patient/createappointment";
-    }
+	@GetMapping("/showappointments")
 
-    @PostMapping("/submit-appointment")
-    public String submitAppointment(@ModelAttribute @Validated Appointment appointment, BindingResult result) {
-        if (result.hasErrors()) {
-            return "patient/createappointment";
-        }
+	public void viewAppointments() {
 
-        appointmentRepository.save(appointment);
-        return "redirect:patient/dashboard";
-    }
+	}
+
+	@PostMapping
+	public void updateAppointment() {
+
+	}
+
+	@PostMapping("/setReminder")
+	public void setReminder() {
+
+	}
 
 }

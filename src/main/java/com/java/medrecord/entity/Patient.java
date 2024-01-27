@@ -1,10 +1,17 @@
 package com.java.medrecord.entity;
 
+//
+//import java.util.ArrayList;
+//import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+//import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -13,7 +20,7 @@ public class Patient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
     private String patientname;
     private String username;
     private String phoneno;
@@ -24,6 +31,13 @@ public class Patient {
     private int age;
     private String address;
 
+//    @OneToMany(mappedBy = "patient")
+//    private List<HealthGoals> healthGoalsList = new ArrayList<>();
+  
+    @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private HealthRecord healthRecord;
+
+    
     public Patient() {
     }
 

@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.5</version>
+		<version>3.2.2</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.java.medrecord</groupId>
@@ -19,22 +19,21 @@
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.5.7.Final</version> <!-- Use the appropriate version -->
 		</dependency>
-		
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
 		<dependency>
-    		<groupId>mysql</groupId>
-    		<artifactId>mysql-connector-java</artifactId>
-   			 <version>8.0.28</version> <!-- Use the appropriate version -->
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.2.3.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -51,12 +50,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>8.0.28</version> <!-- Use the appropriate version -->
-</dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.33</version> <!-- Use the appropriate version -->
+		</dependency>
 
-		
+
 	</dependencies>
 
 	<build>

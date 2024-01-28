@@ -20,7 +20,7 @@ public class Symptom {
 	    
 	    
 	    public Symptom() {
-			// TODO Auto-generated constructor stub
+			
 		}
 	    
 	    

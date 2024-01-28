@@ -1,18 +1,5 @@
 package com.java.medrecord.entity;
-
-//
-//import java.util.ArrayList;
-//import java.util.List;
-
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-//import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "patients")
@@ -21,7 +8,7 @@ public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String patientname;
+    private String patientName;
     private String username;
     private String phoneno;
     private String email;
@@ -30,20 +17,21 @@ public class Patient {
     private String bloodgroup;
     private int age;
     private String address;
+    private String status;
 
 //    @OneToMany(mappedBy = "patient")
 //    private List<HealthGoals> healthGoalsList = new ArrayList<>();
-  
+
     @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private HealthRecord healthRecord;
 
-    
+
     public Patient() {
     }
 
-    public Patient(String patientname, String username, String phoneno, String email, String password, String gender,
-            String bloodgroup, int age, String address) {
-        this.patientname = patientname;
+    public Patient(String patientName, String username, String phoneno, String email, String password, String gender,
+                   String bloodgroup, int age, String address) {
+        this.patientName = patientName;
         this.username = username;
         this.phoneno = phoneno;
         this.email = email;
@@ -54,76 +42,88 @@ public class Patient {
         this.address = address;
     }
 
-    public void setPatientname(String patientname) {
-        this.patientname = patientname;
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getStatus() {
+        return status;
     }
 
-    public void setPhoneno(String phoneno) {
-        this.phoneno = phoneno;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public void setBloodgroup(String bloodgroup) {
-        this.bloodgroup = bloodgroup;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPatientname() {
-        return patientname;
+    public String getPatientName() {
+        return patientName;
     }
 
     public String getUsername() {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getPhoneno() {
         return phoneno;
+    }
+
+    ;
+
+    public void setPhoneno(String phoneno) {
+        this.phoneno = phoneno;
     }
 
     public String getEmail() {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getGender() {
         return gender;
     }
 
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public String getBloodgroup() {
         return bloodgroup;
+    }
+
+    public void setBloodgroup(String bloodgroup) {
+        this.bloodgroup = bloodgroup;
     }
 
     public int getAge() {
         return age;
     }
 
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public String getAddress() {
         return address;
-    };
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    ;
 
 }

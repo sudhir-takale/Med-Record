@@ -1,9 +1,9 @@
 package com.java.medrecord.controller;
 
 //import java.util.List;
+import com.java.medrecord.services.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.http.HttpStatus;
-//import org.springframework.http.ResponseEntity;
+
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,18 +14,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 //import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-//import com.java.medrecord.entity.Appointment;
-import com.java.medrecord.services.AppointmentServices;
+//
 
 @RestController
 @RequestMapping(value = "/doctor", method = RequestMethod.GET)
-public class Doctor {
+public class DoctorHandler {
 
 	@Autowired
-	AppointmentServices appointmentServices;
+    AppointmentService appointmentService;
 
-//	@Autowired
-//	AppointmentRepository appointmentRepositery;
+
 	
 	@GetMapping("/dashboard")
     public String home() {

@@ -12,24 +12,20 @@ public class Appointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
     private String username;
     private String date;
     private String time;
     private String purpose;
-    private String doctorid;
+    private Long doctorid;
     private String status;
     private String note;
 
     public Appointment() {
 
-        this.username = "sanket";
-        this.status = "null";
-        this.note = "sudhir";
-        this.doctorid = "no454";
     }
 
-    public Appointment(int id, String patientName, String date, String time, String purpose, String status,
+    public Appointment(Long id, String patientName, String date, String time, String purpose, String status,
             String note) {
         super();
         this.id = id;
@@ -45,11 +41,11 @@ public class Appointment {
         return username;
     }
 
-    public String getDoctorid() {
+    public Long getDoctorid() {
         return doctorid;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -57,11 +53,11 @@ public class Appointment {
         this.username = username;
     }
 
-    public void setDoctorid(String doctorid) {
+    public void setDoctorid(Long doctorid) {
         this.doctorid = doctorid;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

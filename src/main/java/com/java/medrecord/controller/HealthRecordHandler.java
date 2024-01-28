@@ -1,16 +1,13 @@
 package com.java.medrecord.controller;
 
+import com.java.medrecord.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.java.medrecord.services.impl.HealthRecordImpl;
 
 @RestController
-@RequestMapping("/healthrecord")
+@RequestMapping("/health-record")
 public class HealthRecordHandler {
 
 	@Autowired
@@ -34,7 +31,7 @@ public class HealthRecordHandler {
 
 	// functionality to view entire history
 
-	@GetMapping("/viewhistory")
+	@GetMapping("/view-history")
 	public void viewHistory() {
 
 		this.healthRecordImpl.viewHistory();
@@ -42,26 +39,65 @@ public class HealthRecordHandler {
 	}
 
 	// functionality to give access to other doctors
-	@PostMapping("/grantaccess")
+	@PostMapping("/grant-access")
 	public void grantAccess() {
 		this.healthRecordImpl.giveAccess();
 	}
 
 	// functionality to remove access
 
-	@PostMapping("/revokeaccess")
+	@PostMapping("/revoke-access")
 	public void revokeAccess() {
 
 		this.healthRecordImpl.revokeAccess();
 
 	}
 
-	@PutMapping("/addrecord")
-
+	@PutMapping("/add-record")
 	public void addNewData() {
 
 		this.healthRecordImpl.addNewRecord();
 
 	}
+
+
+	// to add family history
+	@PutMapping("/add-familyhistory")
+	public void addFamilyHistory(@RequestBody FamilyHistory familyHistory) {
+
+
+
+	}
+
+
+	// to add emergency contact information
+
+	@PutMapping("/emergency-contact")
+	public void addEmergencyContact(@RequestBody EmergencyContact emergencyContact) {
+
+
+	}
+
+	// TO ADD medications
+
+	@PutMapping("/medication")
+	public void addMedication(@RequestBody Medication medication){
+
+	}
+
+	//to add new health goals for that specific appointment
+
+	@PutMapping("/health-goal")
+	public void addHealthGoals(@RequestBody HealthGoals healthGoals){
+
+	}
+
+	//To create emergency alerts for that specific health record
+	@PutMapping("/create-alert")
+	public void crateEmergencyAlert(@RequestBody EmergencyAlert emergencyAlert) {
+
+	}
+
+
 
 }

@@ -1,9 +1,12 @@
 package com.java.medrecord.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.List;
-
+@Entity
 public class FamilyHistory {
-	
+	@Id
+	private Long id;
 	
 	private String familyMemberName;
     private String relationship;
@@ -17,9 +20,10 @@ public class FamilyHistory {
  public FamilyHistory() {}
     
     
-	public FamilyHistory(String familyMemberName, String relationship, List<String> medicalConditions,
+	public FamilyHistory(Long id , String familyMemberName, String relationship, List<String> medicalConditions,
 			String currentHealthStatus, String causeOfDeath, List<String> geneticConditions) {
 		super();
+		this.id = id;
 		this.familyMemberName = familyMemberName;
 		this.relationship = relationship;
 		this.medicalConditions = medicalConditions;
@@ -63,11 +67,13 @@ public class FamilyHistory {
 	public void setGeneticConditions(List<String> geneticConditions) {
 		this.geneticConditions = geneticConditions;
 	}
-    
-    
-    
-    
-    
- 
 
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 }

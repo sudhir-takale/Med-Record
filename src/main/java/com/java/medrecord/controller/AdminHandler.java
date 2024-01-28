@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.java.medrecord.services.impl.AdminServicesImpl;
 
@@ -19,10 +20,12 @@ public class AdminHandler {
 	AdminServicesImpl adminServicesImpl;
 
 	@GetMapping("/")
+	@ResponseBody
 	public void viewAllRequest() {
 
-		this.adminServicesImpl.pendingPatientRequest();
+		this.adminServicesImpl.pendingPatientRequest("disable");
 		this.adminServicesImpl.pendingDoctorRequest();
+		System.out.println("Admin started");
 
 	}
 

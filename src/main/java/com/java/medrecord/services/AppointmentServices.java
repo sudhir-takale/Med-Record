@@ -28,6 +28,6 @@ public class AppointmentServices {
             appointment.setTime(newTime);
             return appointmentRepositery.save(appointment);
         }
-        return null; // Handle not found scenario
+        return null;
     }
 }

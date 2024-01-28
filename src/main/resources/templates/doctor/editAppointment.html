@@ -43,7 +43,7 @@
 			var newTime = $("#newTime").val();
 
 			$.ajax({
-				type: "PUT", // Use "PUT" for the method
+				type: "PUT",
 				url: "/doctor/edit-appointment1/" + appointmentId, // Replace with your actual endpoint URL
 				data: {
 					newDate: newDate,

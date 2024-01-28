@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +32,7 @@
         <h1 class="text-center">Doctor Registration</h1>
 
         <!-- Registration Form -->
-        <form action="/doctor/register" method="post">
+        <form th:action="@{/doctor/signup1}" method="post">
 			<div class="form-group">
                 <label for="doctorid">Doctor ID:</label>
                 <input type="number" class="form-control" id="doctorid" name="doctorid" required>

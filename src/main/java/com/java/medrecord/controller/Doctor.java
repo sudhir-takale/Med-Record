@@ -1,34 +1,38 @@
 package com.java.medrecord.controller;
 
-import java.util.List;
+//import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+//import org.springframework.http.HttpStatus;
+//import org.springframework.http.ResponseEntity;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+=======
+//import org.springframework.web.bind.annotation.PutMapping;
+>>>>>>> 22fa7d344e8ce51bc797d43985a7d79a05182811
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.java.medrecord.dao.AppointmentRepositery;
-import com.java.medrecord.entity.Appointment;
+//import com.java.medrecord.entity.Appointment;
 import com.java.medrecord.services.AppointmentServices;
 import com.java.medrecord.services.RegistrationServices;
 
 
-@Controller
+@RestController
 @RequestMapping(value = "/doctor", method = RequestMethod.GET)
 public class Doctor {
 
 	@Autowired
 	AppointmentServices appointmentServices;
-	
-	@Autowired
-	AppointmentRepositery appointmentRepositery;
+
+//	@Autowired
+//	AppointmentRepository appointmentRepositery;
 	
 	@Autowired
 	RegistrationServices registrationServices;
@@ -43,28 +47,28 @@ public class Doctor {
     @GetMapping("/appointments")
     public String showAppointmentsPage(Model model) {
         
-    	List<Appointment> appointments=appointmentServices.getAllAppointments();
+//    	List<Appointment> appointments=appointmentServices.getAllAppointments();
         
-        model.addAttribute("appointments", appointments);
+//        model.addAttribute("appointments", appointments);
 
         return "doctor/appointment";
     }
     
-    @PutMapping("/edit-appointment1/{id}")
-    public ResponseEntity<Appointment> updateAppointment(
-        @PathVariable int id,
-        @RequestParam String newDate,
-        @RequestParam String newTime
-    ) {
-        Appointment updatedAppointment = appointmentServices.updateAppointment(id, newDate, newTime);
-        if (updatedAppointment != null) {
-            return new ResponseEntity<>(updatedAppointment, HttpStatus.OK);
-        } else {
-        	System.out.println("Resource not found");
-        	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-
-        }
-    }
+//    @PutMapping("/edit-appointment1/{id}")
+//    public ResponseEntity<Appointment> updateAppointment(
+//        @PathVariable int id,
+//        @RequestParam String newDate,
+//        @RequestParam String newTime
+//    ) {
+//        Appointment updatedAppointment = appointmentServices.updateAppointment(id, newDate, newTime);
+//        if (updatedAppointment != null) {
+//            return new ResponseEntity<>(updatedAppointment, HttpStatus.OK);
+//        } else {
+//        	System.out.println("Resource not found");
+//        	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//
+//        }
+//    }
     
     @GetMapping("/edit-appointment/{id}")
     public String showUpdateAppointmentPage(@PathVariable int id, Model model) {
